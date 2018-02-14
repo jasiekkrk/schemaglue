@@ -25,7 +25,8 @@ const glue = (schemaFolderPath, options={}) => {
 		schemaPathInConfig = (graphql || {}).schema
 		ignore = (graphql || {}).ignore
 	}
-	const schemaFolder = path.join(schemaFolderPath || schemaPathInConfig || 'schema', '**/*.js')
+    const optionFilePattern = options.filePattern || '**/*.js'
+	const schemaFolder = path.join(schemaFolderPath || schemaPathInConfig || 'schema', optionFilePattern)
 	const optionIgnore = options.ignore || ignore
 	const ignored = optionIgnore
 		? typeof(optionIgnore) == 'string'
